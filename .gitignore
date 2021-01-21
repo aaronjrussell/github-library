@@ -1,2 +1,5 @@
 # Index.php is only for testing
 index.php
+
+# Ignore phpDocumentor stuff
+.phpdoc/
