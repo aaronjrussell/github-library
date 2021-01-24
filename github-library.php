@@ -25,7 +25,7 @@ function get_json($url) {
   $context = stream_context_create($options);
   $content = file_get_contents($url, false, $context);
   $json = json_decode($content);
-  if ($json == false || $json == null) die("Failed to parse response from GitHub!");
+  if ($json == false || $json == null) die('Failed to parse response from GitHub!');
   return $json;
 }
 ?>
