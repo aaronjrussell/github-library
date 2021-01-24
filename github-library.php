@@ -3,32 +3,7 @@ require_once 'class.github-user.php';
 
 function get_user($username) {
   $json = get_json('https://api.github.com/users/' . $username);
-  $user = new GitHubUser(
-    $json->login,
-    $json->avatar_url,
-    $json->html_url,
-    $json->followers_url,
-    $json->following_url,
-    $json->gists_url,
-    $json->starred_url,
-    $json->subscriptions_url,
-    $json->organizations_url,
-    $json->repos_url,
-    $json->events_url,
-    $json->name,
-    $json->company,
-    $json->blog,
-    $json->location,
-    $json->email,
-    $json->hireable,
-    $json->bio,
-    $json->twitter_username,
-    $json->public_repos,
-    $json->public_gists,
-    $json->followers,
-    $json->following
-  );
-  return $user;
+  return new GitHubUser($json);
 }
 
 function get_json($url) {

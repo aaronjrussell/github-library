@@ -2,15 +2,6 @@
 class GitHubUser {
   private $username;
   private $avatar_url;
-  private $profile_url;
-  private $followers_url;
-  private $following_url;
-  private $gists_url;
-  private $starred_url;
-  private $subscriptions_url;
-  private $organizations_url;
-  private $repos_url;
-  private $events_url;
   private $name;
   private $company;
   private $blog;
@@ -24,37 +15,21 @@ class GitHubUser {
   private $follower_count;
   private $following_count;
 
-  public function __construct(
-    $username, $avatar_url, $profile_url, $followers_url,
-    $following_url, $gists_url, $starred_url, $subscriptions_url,
-    $organizations_url, $repos_url, $events_url, $name,
-    $company, $blog, $location, $email, $hireable, $bio,
-    $twitter_username, $public_repo_count, $public_gist_count,
-    $follower_count, $following_count
-  ) {
-    $this->username = $username;
-    $this->avatar_url = $avatar_url;
-    $this->profile_url = $profile_url;
-    $this->followers_url = $followers_url;
-    $this->following_url = $following_url;
-    $this->gists_url = $gists_url;
-    $this->starred_url = $starred_url;
-    $this->subscriptions_url = $subscriptions_url;
-    $this->organizations_url = $organizations_url;
-    $this->repos_url = $repos_url;
-    $this->events_url = $events_url;
-    $this->name = $name;
-    $this->company = $company;
-    $this->blog = $blog;
-    $this->location = $location;
-    $this->email = $email;
-    $this->hireable = $hireable;
-    $this->bio = $bio;
-    $this->twitter_username = $twitter_username;
-    $this->public_repo_count = $public_repo_count;
-    $this->public_gist_count = $public_gist_count;
-    $this->follower_count = $follower_count;
-    $this->following_count = $following_count;
+  public function __construct($json) {
+    $this->username = $json->login;
+    $this->avatar_url = $json->avatar_url;
+    $this->name = $json->name;
+    $this->company = $json->company;
+    $this->blog = $json->blog;
+    $this->location = $json->location;
+    $this->email = $json->email;
+    $this->hireable = $json->hireable;
+    $this->bio = $json->bio;
+    $this->twitter_username = $json->twitter_username;
+    $this->public_repo_count = $json->public_repos;
+    $this->public_gist_count = $json->public_gists;
+    $this->follower_count = $json->followers;
+    $this->following_count = $json->following;
   }
 
   public function get_username() {
@@ -63,42 +38,6 @@ class GitHubUser {
 
   public function get_avatar_url() {
     return $this->avatar_url;
-  }
-
-  public function get_profile_url() {
-    return $this->profile_url;
-  }
-
-  public function get_followers_url() {
-    return $this->followers_url;
-  }
-
-  public function get_following_url() {
-    return $this->remove_url_endings($this->following_url);
-  }
-
-  public function get_gists_url() {
-    return $this->remove_url_endings($this->gists_url);
-  }
-
-  public function get_starred_url() {
-    return $this->remove_url_endings($this->starred_url);
-  }
-
-  public function get_subscriptions_url() {
-    return $this->subscriptions_url;
-  }
-
-  public function get_organizations_url() {
-    return $this->organizations_url;
-  }
-
-  public function get_repos_url() {
-    return $this->repos_url;
-  }
-
-  public function get_events_url() {
-    return $this->remove_url_endings($this->events_url);
   }
 
   public function get_name() {
@@ -179,10 +118,6 @@ class GitHubUser {
 
   public function get_following_count() {
     return $this->following_count;
-  }
-
-  private function remove_url_endings($content) {
-    return preg_replace('/{(.*?)}/', '', $content);
   }
 }
 ?>
