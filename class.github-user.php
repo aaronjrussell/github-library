@@ -80,7 +80,7 @@ class GitHubUser {
     }
   }
 
-  public function get_hireable() {
+  public function is_hireable() {
     if ($this->hireable) {
       return "true";
     } else {
