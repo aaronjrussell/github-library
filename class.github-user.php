@@ -42,7 +42,7 @@ class GitHubUser {
 
   public function get_name() {
     if (empty($this->name)) {
-      return "Not provided";
+      return 'Not provided';
     } else {
       return $this->name;
     }
@@ -50,7 +50,7 @@ class GitHubUser {
 
   public function get_company() {
     if (empty($this->company)) {
-      return "Not provided";
+      return 'Not provided';
     } else {
       return $this->company;
     }
@@ -58,7 +58,7 @@ class GitHubUser {
 
   public function get_blog() {
     if (empty($this->blog)) {
-      return "Not provided";
+      return 'Not provided';
     } else {
       return $this->blog;
     }
@@ -66,7 +66,7 @@ class GitHubUser {
 
   public function get_location() {
     if (empty($this->location)) {
-      return "Not provided";
+      return 'Not provided';
     } else {
       return $this->location;
     }
@@ -74,7 +74,7 @@ class GitHubUser {
 
   public function get_email() {
     if (empty($this->email)) {
-      return "Not provided";
+      return 'Not provided';
     } else {
       return $this->email;
     }
@@ -82,15 +82,15 @@ class GitHubUser {
 
   public function is_hireable() {
     if ($this->hireable) {
-      return "true";
+      return 'true';
     } else {
-      return "false";
+      return 'false';
     }
   }
 
   public function get_bio() {
     if (empty($this->bio)) {
-      return "Not provided";
+      return 'Not provided';
     } else {
       return $this->bio;
     }
@@ -98,7 +98,7 @@ class GitHubUser {
 
   public function get_twitter_username() {
     if (empty($this->twitter_username)) {
-      return "Not provided";
+      return 'Not provided';
     } else {
       return $this->twitter_username;
     }

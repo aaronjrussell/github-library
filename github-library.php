@@ -1,9 +1,15 @@
 <?php
+require_once 'class.github-repo.php';
 require_once 'class.github-user.php';
 
 function get_user($username) {
   $json = get_json('https://api.github.com/users/' . $username);
   return new GitHubUser($json);
+}
+
+function get_repo($username, $repo) {
+  $json = get_json('https://api.github.com/repos/' . $username . '/' . $repo);
+  return new GithubRepo($json);
 }
 
 function get_json($url) {
